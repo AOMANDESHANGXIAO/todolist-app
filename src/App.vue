@@ -1,5 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const count = ref(1)
+</script>
 
-<template>hello</template>
+<template>
+  <div>{{ count }}</div>
+  <nav-aside></nav-aside>
+</template>
 
 <style scoped></style>
