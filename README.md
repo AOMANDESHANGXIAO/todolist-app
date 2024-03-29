@@ -1,39 +1,31 @@
 # todoList-app
 
-This template should help get you started developing with Vue 3 in Vite.
+**Tier:** 2-Intermediate
 
-## Recommended IDE Setup
+The classic To-Do application where a user can write down all the things he wants to accomplish.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## User Stories
 
-## Type Support for `.vue` Imports in TS
+- [ ] User can see an `input` field where he can type in a to-do item
+- [ ] By pressing enter (or a button), the User can submit the to-do item and can see that being added to a list of to-do's
+- [ ] User can mark a to-do as `completed`
+- [ ] User can remove a to-do item by pressing on a button (or on the to-do item itself)
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Bonus features
 
-## Customize configuration
+- [ ] User can edit a to-do
+- [ ] User can see a list with all the completed to-do's
+- [ ] User can see a list with all the active to-do's
+- [ ] User can see the date when he created the to-do
+- [ ] When closing the browser window the to-do's will be stored and when the User returns, the data will be retrieved
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Useful links and resources
 
-## Project Setup
+- [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
 
-```sh
-pnpm install
-```
+## Example projects
 
-### Compile and Hot-Reload for Development
-
-```sh
-pnpm dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-pnpm build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-pnpm lint
-```
+- [Todo App built with React](http://todomvc.com/examples/react/#/)
+- [To Do List on Codepen](https://codepen.io/yesilfasulye/pen/eJIuF) by [Burak Kaya](https://codepen.io/yesilfasulye/)
+- [Todo App in Plain JavaScript](https://safdarjamal.github.io/todo-app/)
+- [Todo App in Golang](https://github.com/schadokar/go-to-do-app)

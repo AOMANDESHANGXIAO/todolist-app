@@ -1,0 +1,20 @@
+@import '@/assets/fonts/iconfont.css';
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --color-black: #003049;
+  --color-gray: #e5e5e5;
+  --color-lightBlue: #00bbf9;
+  --color-ivory-white: #f9f7f3;
+  --color-orange: #ff7d00;
+}
+
+@mixin notExceed {
+  overflow: hidden; /* 隐藏超出部分的内容 */
+  text-overflow: ellipsis; /* 文本超出时用省略号代替 */
+  white-space: nowrap; /* 禁止文本换行 */
+  // background-color: pink;
+}
