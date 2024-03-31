@@ -21,7 +21,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <section class="nav-list-item">
+  <section class="nav-list-item" :class="{ 'active-item': active }">
     <!-- pointer -->
     <div :class="[{ 'active-note': active }]"></div>
     <!-- icon -->
@@ -73,7 +73,7 @@ $dot-color: #e63946;
     width: 3px;
     height: 25px;
     border-radius: 2px;
-    background-color: var(--color-green);
+    background-color: var(--color-purple);
   }
   .dot {
     position: absolute;
@@ -91,5 +91,8 @@ $dot-color: #e63946;
     font-weight: 300;
     @include notExceed;
   }
+}
+.active-item {
+  background-color: var(--color-gray);
 }
 </style>

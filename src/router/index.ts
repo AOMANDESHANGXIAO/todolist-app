@@ -1,15 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
+import myDayView from '@/views/mydayView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      redirect: ''
+      redirect: '/myday'
     },
     {
-      path: '/about',
-      name: 'about'
+      path: '/myday',
+      component: myDayView
     }
   ]
 })

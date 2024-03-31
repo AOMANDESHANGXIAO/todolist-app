@@ -8,6 +8,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: 'pingfang';
+  // cursor: default;
 }
 :root {
   --color-black: #003049;
@@ -15,7 +16,9 @@
   --color-lightBlue: #00bbf9;
   --color-ivory-white: #f9f7f3;
   --color-orange: #ff7d00;
-  --color-green: #34bf49;
+  --color-green: #358f89;
+  --color-purple: #7552cc;
+  --color-light-gray: #ced4ec;
 }
 
 @mixin notExceed {

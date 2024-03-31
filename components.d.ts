@@ -10,11 +10,15 @@ declare module 'vue' {
     Avater: typeof import('./src/components/nav/avater.vue')['default']
     Hr: typeof import('./src/components/common/hr.vue')['default']
     Icon: typeof import('./src/components/common/icon.vue')['default']
+    MyTask: typeof import('./src/components/task/myTask.vue')['default']
     NavAside: typeof import('./src/components/nav/navAside.vue')['default']
     NavAvater: typeof import('./src/components/nav/navAvater.vue')['default']
     NavList: typeof import('./src/components/nav/navList.vue')['default']
     NavListItem: typeof import('./src/components/nav/navListItem.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Rw: typeof import('./src/components/common/rw.vue')['default']
+    RwHeader: typeof import('./src/components/common/rwHeader.vue')['default']
+    TheTask: typeof import('./src/components/task/theTask.vue')['default']
   }
 }

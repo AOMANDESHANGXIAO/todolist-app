@@ -1,7 +1,14 @@
 <script setup lang="ts"></script>
 
 <template>
-  <nav-aside></nav-aside>
+  <div class="body">
+    <nav-aside></nav-aside>
+    <RouterView></RouterView>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.body {
+  display: flex;
+}
+</style>
