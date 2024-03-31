@@ -1,22 +1,37 @@
 <script lang="ts" setup>
-interface list_item {
+interface listItem {
   icon: String
   text: String
-  count: String
+  count: String | Number
 }
-const list: list_item[] = ref([{ icon: 'shuiguo', text: 'my Day', count: 5 }])
+const props = defineProps({
+  list: {
+    type: Array<listItem>,
+    default: () => {
+      return [] as listItem[]
+    }
+  },
+  modelValue: {
+    type: Number,
+    default: 0
+  }
+})
 
-const active_index = ref(0)
+const emit = defineEmits(['update:modelValue'])
+const handleClick = (index: Number) => {
+  emit('update:modelValue', index)
+}
 </script>
 
 <template>
   <nav-list-item
     :icon="item.icon"
     :text="item.text"
-    v-for="(item, index) in list"
+    v-for="(item, index) in props.list"
     :key="index"
     :count="item.count"
-    :active="active_index === index"
+    :active="modelValue === index"
+    @click="handleClick(index)"
   ></nav-list-item>
 </template>
 

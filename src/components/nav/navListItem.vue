@@ -29,7 +29,7 @@ const props = defineProps({
       <my-icon :name="icon"></my-icon>
     </div>
     <!-- 文本 -->
-    <section class="text">{{ text }}</section>
+    <section class="text">{{ props.text }}</section>
     <!-- 小圆点 -->
     <div class="dot" v-if="count !== 0">{{ count }}</div>
   </section>
@@ -54,8 +54,11 @@ $dot-color: #e63946;
   cursor: default;
   border-radius: 5px;
   position: relative;
+  transition: all 0.3s;
   .icon {
     margin-left: 10px;
+    font-weight: 300;
+    font-size: 10px;
   }
   .text {
     margin-left: 20px;
@@ -70,7 +73,7 @@ $dot-color: #e63946;
     width: 3px;
     height: 25px;
     border-radius: 2px;
-    background-color: var(--color-orange);
+    background-color: var(--color-green);
   }
   .dot {
     position: absolute;
@@ -85,7 +88,7 @@ $dot-color: #e63946;
     text-align: center;
     line-height: 13px;
     margin-right: 10px;
-    font-weight: 400;
+    font-weight: 300;
     @include notExceed;
   }
 }

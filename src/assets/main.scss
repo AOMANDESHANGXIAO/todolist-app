@@ -1,8 +1,13 @@
 @import '@/assets/fonts/iconfont.css';
+@font-face {
+  font-family: 'pingfang';
+  src: url('@/assets/w-fonts/PingFang-Regular.ttf');
+}
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'pingfang';
 }
 :root {
   --color-black: #003049;
@@ -10,6 +15,7 @@
   --color-lightBlue: #00bbf9;
   --color-ivory-white: #f9f7f3;
   --color-orange: #ff7d00;
+  --color-green: #34bf49;
 }
 
 @mixin notExceed {

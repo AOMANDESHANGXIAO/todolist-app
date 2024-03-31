@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "970780",
+      "name": "太阳",
+      "font_class": "taiyang-copy",
+      "unicode": "e64c",
+      "unicode_decimal": 58956
+    },
+    {
+      "icon_id": "12725567",
+      "name": "需努力",
+      "font_class": "xunuli-",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
       "icon_id": "2076188",
       "name": " 关闭箭头",
       "font_class": "guanbijiantou",

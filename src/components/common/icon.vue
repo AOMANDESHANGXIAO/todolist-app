@@ -19,6 +19,6 @@ const props = defineProps({
 .my-icon {
   font-size: 18px;
   font-weight: 600;
-  color: var(--color-orange);
+  color: var(--color-green);
 }
 </style>
