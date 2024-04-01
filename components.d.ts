@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AddTask: typeof import('./src/components/task/addTask.vue')['default']
     Avater: typeof import('./src/components/nav/avater.vue')['default']
     Hr: typeof import('./src/components/common/hr.vue')['default']
     Icon: typeof import('./src/components/common/icon.vue')['default']

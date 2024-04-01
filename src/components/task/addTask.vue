@@ -1,26 +1,22 @@
 <script setup lang="ts">
+import { useTaskStore } from '@/stores/task.ts'
+
+const taskStore = useTaskStore()
 const props = defineProps({
-  title: {
-    type: String,
-    default: 'Untitled'
-  },
-  task: {
-    type: Object,
-    default: () => {
-      return {}
-    }
-  }
+  modelValue: { type: String, default: '' }
 })
 
-const isHover = ref(false)
-const handleHover = (val: boolean) => {
-  isHover.value = val
+const emit = defineEmits(['update:modelValue'])
+const handleChange = () => {
+  emit('update:modelValue', newTask.value)
 }
-const handleMouseEnter = () => {
-  handleHover(true)
-}
-const handleMouseLeave = () => {
-  handleHover(false)
+const newTask = ref<String>('')
+
+const handleTask: Function = inject('handleAddNewTask')
+
+const handleAddNewTask = () => {
+  handleTask()
+  newTask.value = ''
 }
 </script>
 
@@ -28,17 +24,15 @@ const handleMouseLeave = () => {
   <div class="my-task">
     <!-- left -->
     <section class="task-left">
-      <div class="task-dot" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
-        <icon name="biaodankongjiandanxuan" color="#616161" size="small" v-show="isHover"></icon>
-      </div>
+      <icon name="zengjia" color="#616161" @click="handleAddNewTask"></icon>
       <div class="task-title">
-        <span>{{ task.name }}</span>
-      </div>
-    </section>
-    <!-- right -->
-    <section class="task-right">
-      <div class="task-button-list">
-        <icon name="shoucang" color="#616161" :hoverColor="true"></icon>
+        <input
+          type="text"
+          placeholder="Add a Task"
+          v-model="newTask"
+          @input="handleChange"
+          @keyup.enter="handleAddNewTask"
+        />
       </div>
     </section>
   </div>
@@ -50,16 +44,13 @@ $dot-border-size: 20px;
 .my-task {
   width: 100%;
   height: 50px;
-  background-color: #eeeff3;
+  background-color: #fff;
   border-radius: 5px;
   padding: 0 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  //   justify-content: space-between;
   align-items: center;
-  margin-bottom: 6px;
-  &:hover {
-    background-color: #f6f6f6;
-  }
   //   gap: 10px;
   .task-left {
     display: flex;
@@ -81,6 +72,7 @@ $dot-border-size: 20px;
     input {
       outline: none;
       border: none;
+      font-size: 16px;
     }
   }
 }
