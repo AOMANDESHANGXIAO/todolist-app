@@ -11,7 +11,7 @@
   // cursor: default;
 }
 :root {
-  --color-black: #003049;
+  --color-black: #484848;
   --color-gray: #e5e5e5;
   --color-lightBlue: #00bbf9;
   --color-ivory-white: #f9f7f3;
@@ -19,6 +19,8 @@
   --color-green: #358f89;
   --color-purple: #7552cc;
   --color-light-gray: #ced4ec;
+  --color-bgc-gray: #f6f6f6;
+  --color-theme-color: var(--color-purple);
 }
 
 @mixin notExceed {

@@ -31,18 +31,54 @@ const handleAddNewTask = () => {
 }
 
 provide('handleAddNewTask', handleAddNewTask)
+
+const hanleFinishTask = (id: number) => {
+  console.log('finished task', id)
+  taskStore.finishTask(id)
+}
+
+const isShowFinished = ref(false)
+
+const handleClickComplete = () => {
+  isShowFinished.value = !isShowFinished.value
+}
+
+const bgc = ref('#358f89')
 </script>
 
 <template>
   <rw-view>
-    <div class="mydayView">
+    <div class="mydayView" :style="{ 'background-color': bgc }">
+      <!-- My Day信息 -->
       <header class="header">
         <rw-header :title="'My Day'"></rw-header>
         <div>{{ timeInfo }}</div>
       </header>
+      <!-- 未完成的任务 -->
       <div class="todolist-content">
-        <my-task v-for="item in taskStore.myDayTask" :task="item" :key="item.id"></my-task>
+        <my-task
+          v-for="item in taskStore.isworking_myday"
+          :task="item"
+          :key="item.id"
+          @finishTask="hanleFinishTask"
+        ></my-task>
+        <div class="completed-todolist" v-if="taskStore.finished_myday.length">
+          <complete-button
+            :com_num="taskStore.finished_myday.length"
+            @click="handleClickComplete"
+          ></complete-button>
+          <section class="finished" v-show="isShowFinished">
+            <my-task
+              v-for="item in taskStore.finished_myday"
+              :task="item"
+              :key="item.id"
+              :dot-color="bgc"
+            ></my-task>
+          </section>
+        </div>
       </div>
+      <!-- 已完成的任务 -->
+      <!-- 添加任务 -->
       <div class="add-task-button">
         <add-task v-model="newTask"></add-task>
       </div>
@@ -54,7 +90,7 @@ provide('handleAddNewTask', handleAddNewTask)
 .mydayView {
   width: 100%;
   height: 100%;
-  background-color: var(--color-green);
+  // background-color: var(--color-green);
   border-radius: 10px 0 0 0;
   padding: 50px;
   color: #fff;

@@ -2,12 +2,18 @@
 defineOptions({
   name: 'rw-header'
 })
+
+const emit = defineEmits(['click-cion'])
 const props = defineProps({
   title: {
     type: String,
     default: 'Untitled'
   }
 })
+
+const handleClickIcon = () => {
+  emit('click-cion')
+}
 </script>
 
 <template>
@@ -16,7 +22,9 @@ const props = defineProps({
       <span>{{ props.title }}</span>
     </div>
     <div class="icon-list">
-      <div class="icon-button"><icon name="gengduo" color="#fff"></icon></div>
+      <div class="icon-button" @click="handleClickIcon">
+        <icon name="gengduo" color="#fff"></icon>
+      </div>
     </div>
   </header>
 </template>
@@ -36,8 +44,6 @@ const props = defineProps({
     font-size: 30px;
     cursor: default;
   }
-  .icon-list {
-  }
   .icon-button {
     width: 25px;
     height: 25px;
@@ -49,7 +55,7 @@ const props = defineProps({
     cursor: pointer;
     transition: all 0.3s;
     &:hover {
-      background-color: var(--color-light-gray);
+      background-color: rgba(#fff, 0.5);
     }
   }
 }

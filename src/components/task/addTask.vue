@@ -52,7 +52,11 @@ $dot-border-size: 20px;
   //   justify-content: space-between;
   align-items: center;
   //   gap: 10px;
+  &:hover {
+    background-color: #f6f6f6;
+  }
   .task-left {
+    width: 100%;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -69,10 +73,15 @@ $dot-border-size: 20px;
   .task-title {
     color: $dot-border-color;
     cursor: default;
+    // background-color: pink;
+    width: 100%;
     input {
       outline: none;
       border: none;
       font-size: 16px;
+      width: 100%;
+      background-color: transparent;
+      // background-color: pink;
     }
   }
 }

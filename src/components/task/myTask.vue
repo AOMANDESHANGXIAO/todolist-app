@@ -9,8 +9,13 @@ const props = defineProps({
     default: () => {
       return {}
     }
+  },
+  dotColor: {
+    type: String,
+    default: ''
   }
 })
+const emit = defineEmits(['finishTask'])
 
 const isHover = ref(false)
 const handleHover = (val: boolean) => {
@@ -22,14 +27,31 @@ const handleMouseEnter = () => {
 const handleMouseLeave = () => {
   handleHover(false)
 }
+
+const handleFinishTask = (id: number) => {
+  // 完成任务
+  emit('finishTask', id)
+  // props.task.isFinished = !props.task.isFinished
+}
 </script>
 
 <template>
-  <div class="my-task">
+  <div class="my-task" :class="{ 'is-finished': task.isFinished }">
     <!-- left -->
     <section class="task-left">
-      <div class="task-dot" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
-        <icon name="biaodankongjiandanxuan" color="#616161" size="small" v-show="isHover"></icon>
+      <div
+        class="task-dot"
+        @mouseenter="handleMouseEnter"
+        @mouseleave="handleMouseLeave"
+        @click="handleFinishTask(task.id)"
+        :style="{ 'background-color': dotColor, 'border-color': dotColor }"
+      >
+        <icon
+          name="biaodankongjiandanxuan"
+          :color="dotColor ? '#fff' : '#616161'"
+          size="small"
+          v-show="isHover || task.isFinished"
+        ></icon>
       </div>
       <div class="task-title">
         <span>{{ task.name }}</span>
@@ -83,5 +105,13 @@ $dot-border-size: 20px;
       border: none;
     }
   }
+}
+.my-task.is-finished {
+  .task-title {
+    text-decoration: line-through;
+  }
+  // .task-dot {
+  //   background-color: var(--color-theme-color);
+  // }
 }
 </style>
