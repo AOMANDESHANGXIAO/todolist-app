@@ -44,6 +44,20 @@ const handleClickComplete = () => {
 }
 
 const bgc = ref('#358f89')
+
+// 控制侧边菜单的显示
+const isShowAside = ref(false)
+const handleClickMore = () => {
+  isShowAside.value = !isShowAside.value
+}
+
+const themeColorList = ref(['#358f89', '#ff4c4c', '#ff0000', '#7552cc', '#ffc845', '#0099e5'])
+
+const selectedIndex = ref(0)
+const handleClickColor = (obj: Object) => {
+  bgc.value = obj.color
+  selectedIndex.value = obj.index
+}
 </script>
 
 <template>
@@ -51,8 +65,21 @@ const bgc = ref('#358f89')
     <div class="mydayView" :style="{ 'background-color': bgc }">
       <!-- My Day信息 -->
       <header class="header">
-        <rw-header :title="'My Day'"></rw-header>
+        <rw-header :title="'My Day'" @click-cion="handleClickMore"></rw-header>
         <div>{{ timeInfo }}</div>
+        <!-- 侧边菜单 -->
+        <manu-aside title="Theme" v-if="isShowAside">
+          <section class="content">
+            <color-cup
+              v-for="(item, index) in themeColorList"
+              :show-color="item"
+              :key="index"
+              @selectColor="handleClickColor"
+              :index="index"
+              :isSelected="selectedIndex === index"
+            ></color-cup>
+          </section>
+        </manu-aside>
       </header>
       <!-- 未完成的任务 -->
       <div class="todolist-content">
@@ -94,8 +121,10 @@ const bgc = ref('#358f89')
   border-radius: 10px 0 0 0;
   padding: 50px;
   color: #fff;
+  transition: all 0.5s;
   .header {
     cursor: default;
+    position: relative;
   }
   .todolist-content {
     margin-top: 30px;
@@ -122,5 +151,11 @@ const bgc = ref('#358f89')
   .add-task-button {
     margin-top: 20px;
   }
+}
+.content {
+  // width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  // flex-direction: row;
 }
 </style>
